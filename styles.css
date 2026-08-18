@@ -82,7 +82,10 @@ h1, h2, h3 { font-family: var(--heading); font-weight: 600; line-height: 1.2; }
   position: fixed; inset: 0 0 auto 0; z-index: 50;
   transition: background .4s, box-shadow .4s;
 }
-.nav.scrolled { background: rgba(255,255,255,.95); backdrop-filter: blur(12px); box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.nav.scrolled, .nav.menu-open { background: rgba(255,255,255,.98); backdrop-filter: blur(12px); box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.nav.menu-open .brand b { color: var(--navy); }
+.nav.menu-open .brand span { color: var(--mist); }
+.nav.menu-open .nav-toggle { color: var(--ink); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 5rem; }
 .brand { display: flex; flex-direction: column; text-decoration: none; }
 .brand b { font-family: var(--heading); font-size: 1.25rem; font-weight: 600; color: #fff; letter-spacing: -.01em; }

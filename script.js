@@ -16,6 +16,7 @@ const menu = document.getElementById("mobileMenu");
 const navIcon = document.getElementById("navIcon");
 const setMenu = (open) => {
   menu.classList.toggle("open", open);
+  nav.classList.toggle("menu-open", open);
   toggle.setAttribute("aria-expanded", String(open));
   toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   navIcon.innerHTML = '<use href="#' + (open ? "close" : "menu") + '"/>';
