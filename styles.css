@@ -145,13 +145,20 @@ h1, h2, h3 { font-family: var(--heading); font-weight: 600; line-height: 1.2; }
 /* Stats */
 .stats { background: var(--navy); }
 .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; padding-block: 2.5rem; }
-.stat { display: flex; align-items: center; gap: 1rem; }
+.stat { display: flex; align-items: center; gap: .75rem; }
+.stat { align-items: center; }
 .stat-icon {
-  width: 3rem; height: 3rem; border-radius: 999px; background: rgba(255,255,255,.1);
+  width: 2.5rem; height: 2.5rem; border-radius: 999px; background: rgba(255,255,255,.1);
   display: grid; place-items: center; flex: none; color: var(--teal-soft);
 }
-.stat b { display: block; font-family: var(--heading); font-size: 1.5rem; font-weight: 600; color: #fff; }
-.stat span { font-size: .75rem; color: rgba(255,255,255,.6); }
+.stat-icon .icon { width: 1.05rem; height: 1.05rem; }
+.stat b { display: block; font-family: var(--heading); font-size: 1.125rem; font-weight: 600; color: #fff; line-height: 1.25; }
+.stat span { font-size: .75rem; color: rgba(255,255,255,.6); line-height: 1.35; }
+@media (min-width: 700px) {
+  .stat-icon { width: 3rem; height: 3rem; }
+  .stat-icon .icon { width: 1.25rem; height: 1.25rem; }
+  .stat b { font-size: 1.5rem; }
+}
 @media (min-width: 900px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
 
 /* Card grids */
