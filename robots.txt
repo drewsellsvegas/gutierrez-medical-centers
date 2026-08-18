@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://drewsellsvegas.github.io/gutierrez-medical-centers/sitemap.xml
