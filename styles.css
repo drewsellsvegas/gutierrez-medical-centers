@@ -186,8 +186,8 @@ h1, h2, h3 { font-family: var(--heading); font-weight: 600; line-height: 1.2; }
 .split { display: grid; gap: 2.5rem; align-items: center; grid-template-columns: 1fr; }
 @media (min-width: 700px) { .split { gap: 4rem; } }
 @media (min-width: 1000px) { .split { grid-template-columns: 1fr 1fr; } }
-.split-img { position: relative; }
-.split-img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px; }
+.split-img { position: relative; aspect-ratio: 4/3; }
+.split-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; }
 .badge {
   position: absolute; right: -1.5rem; bottom: -1.5rem; background: var(--navy);
   color: #fff; padding: 1.5rem 2rem; border-radius: 2px; display: none;
@@ -213,8 +213,8 @@ h1, h2, h3 { font-family: var(--heading); font-weight: 600; line-height: 1.2; }
 .doctor { background: var(--cream-dim); }
 .doctor-grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; align-items: start; }
 @media (min-width: 1000px) { .doctor-grid { grid-template-columns: 5fr 7fr; gap: 4rem; } }
-.portrait { position: relative; }
-.portrait img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 2px; box-shadow: 0 20px 40px rgba(0,0,0,.15); }
+.portrait { position: relative; aspect-ratio: 4/5; }
+.portrait img { width: 100%; height: 100%; object-fit: cover; border-radius: 2px; box-shadow: 0 20px 40px rgba(0,0,0,.15); }
 .portrait-tag {
   position: absolute; left: -1.25rem; bottom: -1.25rem; background: #fff;
   padding: 1rem 1.5rem; border-radius: 2px; box-shadow: 0 8px 20px rgba(0,0,0,.1); display: none;
@@ -242,7 +242,7 @@ h1, h2, h3 { font-family: var(--heading); font-weight: 600; line-height: 1.2; }
 }
 .label { font-size: .75rem; text-transform: uppercase; letter-spacing: .2em; color: var(--mist); font-weight: 500; margin-bottom: 1rem; }
 .family { background: #fff; border: 1px solid var(--linen); border-radius: 2px; overflow: hidden; margin-top: 2.5rem; }
-.family img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+.family img { width: 100%; height: auto; display: block; }
 .family-note { padding: 1.5rem; display: flex; gap: 1rem; align-items: flex-start; font-size: .875rem; color: var(--mist); }
 .family-note .card-icon { width: 2.5rem; height: 2.5rem; margin: 0; }
 
