@@ -360,3 +360,19 @@ footer { background: var(--navy); color: #fff; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* ── Hero appointment form (added 2026-09-26) ── */
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; width: 100%; }
+@media (min-width: 980px) { .hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: 3.5rem; } }
+.hero-form {
+  width: 100%; max-width: 32rem; background: rgba(255,255,255,.97);
+  backdrop-filter: blur(8px); border: 0; border-radius: 6px;
+  padding: 1.75rem; box-shadow: 0 24px 60px rgba(16,28,40,.35);
+}
+@media (min-width: 980px) { .hero-form { margin-left: auto; } }
+.hero-form h2 { font-family: var(--heading); font-size: 1.5rem; font-weight: 600; color: var(--ink); margin-bottom: .35rem; }
+.hero-form .hf-sub { font-size: .875rem; color: var(--mist); margin-bottom: 1.35rem; }
+.hero-form .field-row { margin-bottom: 1rem; gap: 1rem; }
+.hero-form textarea { min-height: 4.25rem; margin-bottom: 1rem; }
+.hero-form .hf-alt { margin-top: .9rem; font-size: .75rem; color: var(--mist); text-align: center; }
+.hero-form .form-done { padding: 2.25rem 1rem; }

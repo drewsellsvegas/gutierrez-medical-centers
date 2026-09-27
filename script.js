@@ -26,43 +26,47 @@ menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setM
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Contact form
-const form = document.getElementById("contactForm");
-const submitBtn = document.getElementById("cf-submit");
+// Contact forms — the hero "Request an Appointment" card and the contact
+// section share this handler. Each form manages its own button + sent state.
+document.querySelectorAll("form.js-contact-form").forEach((form) => {
+  const submitBtn = form.querySelector('[type="submit"]');
+  const label = submitBtn ? submitBtn.querySelector(".btn-label") : null;
+  const defaultLabel = label ? label.textContent : "";
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  if (!form.reportValidity()) return;
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
 
-  const data = Object.fromEntries(new FormData(form).entries());
-  submitBtn.disabled = true;
-  submitBtn.textContent = "Sending...";
+    const data = Object.fromEntries(new FormData(form).entries());
+    if (submitBtn) submitBtn.disabled = true;
+    if (label) label.textContent = "Sending...";
 
-  if (FORM_ENDPOINT) {
-    try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: new FormData(form),
-      });
-      if (!res.ok) throw new Error("Request failed");
-      form.classList.add("sent");
-      return;
-    } catch {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Send Message";
-      alert("Sorry, that didn't go through. Please call us at (702) 909-8196.");
-      return;
+    if (FORM_ENDPOINT) {
+      try {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form),
+        });
+        if (!res.ok) throw new Error("Request failed");
+        form.classList.add("sent");
+        return;
+      } catch {
+        if (submitBtn) submitBtn.disabled = false;
+        if (label) label.textContent = defaultLabel;
+        alert("Sorry, that didn't go through. Please call us at (702) 909-8196.");
+        return;
+      }
     }
-  }
 
-  // No endpoint configured: hand the message to the visitor's email client.
-  const body =
-    "Name: " + data.name + "\nEmail: " + data.email +
-    "\nPhone: " + (data.phone || "not provided") + "\n\n" + data.message;
-  window.location.href =
-    "mailto:" + PRACTICE_EMAIL +
-    "?subject=" + encodeURIComponent("Website inquiry from " + data.name) +
-    "&body=" + encodeURIComponent(body);
-  form.classList.add("sent");
+    // No endpoint configured: hand the message to the visitor's email client.
+    const body =
+      "Name: " + data.name + "\nEmail: " + (data.email || "not provided") +
+      "\nPhone: " + (data.phone || "not provided") + "\n\n" + (data.message || "");
+    window.location.href =
+      "mailto:" + PRACTICE_EMAIL +
+      "?subject=" + encodeURIComponent("Website inquiry from " + data.name) +
+      "&body=" + encodeURIComponent(body);
+    form.classList.add("sent");
+  });
 });
