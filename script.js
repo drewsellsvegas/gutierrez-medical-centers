@@ -1,7 +1,11 @@
 // Paste a form endpoint here (e.g. Formspree "https://formspree.io/f/xxxxxxx")
 // to have submissions emailed automatically. Left empty, the form opens the
 // visitor's email app with the message pre-filled instead.
-const FORM_ENDPOINT = "";
+// Formsubmit relays submissions to the practice inbox with no backend/signup.
+// First real submission triggers a one-time activation email to the address
+// below — someone must click "Activate Form" in that email once; after that
+// every submission is delivered. To change where leads go, swap the address.
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/GutierrezMD@gutierrezmed.co";
 const PRACTICE_EMAIL = "GutierrezMD@gutierrezmed.co";
 
 // Nav: solid background once scrolled past the hero band.
